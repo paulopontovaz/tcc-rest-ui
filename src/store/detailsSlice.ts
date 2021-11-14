@@ -4,19 +4,17 @@ import { Pokemon } from "../types/pokemon";
 
 export const fetchPokemon = createAsyncThunk(
 	"list/fetchPokemon",
-	async (pokemon: Pokemon) => {
-		const response = await fetchPokemonService(pokemon);
+	async (pokemonId: Pokemon["id"]) => {
+		const response = await fetchPokemonService(pokemonId);
 		return (await response.data) as Pokemon;
 	}
 );
 
 interface DetailsState {
-	selected: Pokemon;
+	readonly selected?: Pokemon;
 }
 
-const initialState: DetailsState = {
-	selected: {} as Pokemon,
-};
+const initialState: DetailsState = {};
 
 export const detailsSlice = createSlice({
 	name: "details",

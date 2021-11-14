@@ -12,10 +12,10 @@ const MainRoutes: FC = () => (
 			<Route
 				index
 				element={
-					<>
+					<Flex flexDir="column">
 						<SearchBar />
 						<SearchResults />
-					</>
+					</Flex>
 				}
 			/>
 			<Route path=":pokemonId" element={<PokemonDetails />} />

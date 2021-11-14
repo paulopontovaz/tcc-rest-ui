@@ -8,8 +8,8 @@ const instance = axios.create({
 export const fetchPokemonListService = (query: string = "") =>
 	instance.get(`/pokemon?q=${query}`);
 
-export const fetchPokemonService = (pokemon: Pokemon) =>
-	instance.get(`/pokemon/${pokemon.id}`);
+export const fetchPokemonService = (pokemonId: Pokemon["id"]) =>
+	instance.get(`/pokemon/${pokemonId}`);
 
 export const editPokemonService = (pokemon: Pokemon) =>
 	instance.put(`/pokemon/${pokemon.id}`, { nickname: pokemon.nickname });

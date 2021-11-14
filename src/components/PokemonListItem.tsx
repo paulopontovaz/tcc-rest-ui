@@ -1,5 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { Flex, Text, Image, Heading, WrapItem } from "@chakra-ui/react";
+import {
+	Flex,
+	Text,
+	Image,
+	Heading,
+	WrapItem,
+	AspectRatio,
+} from "@chakra-ui/react";
 import { FC } from "react";
 import { Pokemon } from "../types/pokemon";
 import { useAppDispatch } from "../store/hooks";
@@ -32,13 +39,22 @@ const PokemonListItem: FC<PokemonListItemOwnProps> = ({ pokemon }) => {
 			onClick={handleOnClick}
 			flexDir="column"
 			alignItems="center"
+			justifyContent="space-between"
 		>
-			<Image src={pokemon.img} alt={pokemon.name} boxSize="132px" />
-			<Heading size="sm" mt="0.5rem">
-				{pokemon.name}
-			</Heading>
-			<Text fontSize="xs">Types: </Text>
-			<Text fontSize="xs">{pokemon.type.map(getTypeList)}</Text>
+			<Flex justifyContent="center" h="100%" maxWidth="128px">
+				<Image
+					src={pokemon.img}
+					alt={pokemon.name}
+					objectFit="contain"
+				/>
+			</Flex>
+			<Flex flexDir="column" alignItems="center">
+				<Heading size="sm" mt="0.5rem">
+					{pokemon.name} #{pokemon.id}
+				</Heading>
+				<Text fontSize="xs">Types: </Text>
+				<Text fontSize="xs">{pokemon.type.map(getTypeList)}</Text>
+			</Flex>
 		</WrapItem>
 	);
 };
