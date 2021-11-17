@@ -10,9 +10,3 @@ export const fetchPokemonListService = (query: string = "") =>
 
 export const fetchPokemonService = (pokemonId: Pokemon["id"]) =>
 	instance.get(`/pokemon/${pokemonId}`);
-
-export const editPokemonService = (pokemon: Pokemon) =>
-	instance.put(`/pokemon/${pokemon.id}`, { nickname: pokemon.nickname });
-
-export const deletePokemonService = (pokemon: Pokemon) =>
-	instance.delete(`/pokemon/${pokemon.id}`);

@@ -1,4 +1,4 @@
-import { Flex, Text, Divider, Wrap, Center } from "@chakra-ui/react";
+import { Wrap } from "@chakra-ui/react";
 import { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { fetchPokemonList } from "../store/listSlice";

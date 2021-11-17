@@ -1,12 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {
-	Flex,
-	Text,
-	Image,
-	Heading,
-	WrapItem,
-	AspectRatio,
-} from "@chakra-ui/react";
+import { Flex, Text, Image, Heading, WrapItem } from "@chakra-ui/react";
 import { FC } from "react";
 import { Pokemon } from "../types/pokemon";
 import { useAppDispatch } from "../store/hooks";
