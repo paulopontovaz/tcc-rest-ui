@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src/components/PokemonDetails.tsx</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/components/PokemonDetails.tsx</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">68.75</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">208</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">23.57</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.81</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">import startCase from &quot;lodash.startcase&quot;;
+import { ArrowBackIcon, ArrowForwardIcon, SearchIcon } from &quot;@chakra-ui/icons&quot;;
+import {
+	HStack,
+	Button,
+	Flex,
+	Heading,
+	Image,
+	StackDivider,
+	VStack,
+	Text,
+	SimpleGrid,
+	Stat,
+	StatLabel,
+	StatNumber,
+} from &quot;@chakra-ui/react&quot;;
+import { FC, useEffect } from &quot;react&quot;;
+import { useParams } from &quot;react-router&quot;;
+import { fetchPokemon } from &quot;../store/detailsSlice&quot;;
+import { useAppDispatch, useAppSelector } from &quot;../store/hooks&quot;;
+import { selectSelectedPokemon } from &quot;../store/selectors&quot;;
+import {
+	PokemonDamages,
+	PokemonMisc,
+	PokemonMoves,
+	PokemonStats,
+	PokemonType,
+} from &quot;../types/pokemon&quot;;
+import { useNavigate } from &quot;react-router-dom&quot;;
+
+interface GeneralPokemonDataOwnProps {
+	readonly children?: React.ReactNode;
+	readonly keyValueMap?: PokemonDamages | PokemonStats;
+	readonly title: string;
+}
+
+const GeneralPokemonDataComp: FC&lt;GeneralPokemonDataOwnProps&gt; = ({
+	children,
+	keyValueMap,
+	title,
+}) =&gt; (
+	&lt;Flex direction=&quot;column&quot; w=&quot;100%&quot; mb=&quot;3rem&quot;&gt;
+		&lt;Heading size=&quot;lg&quot;&gt;{title}&lt;/Heading&gt;
+		&lt;VStack
+			mt=&quot;1rem&quot;
+			divider={&lt;StackDivider borderColor=&quot;gray.200&quot; /&gt;}
+			spacing={2}
+			align=&quot;stretch&quot;
+		&gt;
+			{children ||
+				(keyValueMap &amp;&amp;
+					Object.entries(keyValueMap).map(([key, value]) =&gt; (
+						&lt;Flex key={`${key}-${value}`}&gt;
+							&lt;Text&gt;
+								&lt;strong&gt;{key.toUpperCase()}&lt;/strong&gt;
+							&lt;/Text&gt;
+							&lt;Text ml=&quot;0.5rem&quot;&gt;{value}&lt;/Text&gt;
+						&lt;/Flex&gt;
+					)))}
+		&lt;/VStack&gt;
+	&lt;/Flex&gt;
+);
+
+const PokemonMovesComp: FC&lt;{ moves: PokemonMoves[&quot;level&quot;] }&gt; = ({ moves }) =&gt; (
+	&lt;GeneralPokemonDataComp title=&quot;Moves&quot;&gt;
+		{moves.map(({ learnedat, name }) =&gt; (
+			&lt;Flex align=&quot;center&quot; key={`${name}-${learnedat}`}&gt;
+				&lt;Text&gt;
+					&lt;strong&gt;{startCase(name)}&lt;/strong&gt;
+				&lt;/Text&gt;
+				&lt;Text as=&quot;sub&quot; ml=&quot;1rem&quot;&gt;
+					(
+					{learnedat
+						? `Learned at level: ${learnedat}`
+						: &quot;From the start&quot;}
+					)
+				&lt;/Text&gt;
+			&lt;/Flex&gt;
+		))}
+	&lt;/GeneralPokemonDataComp&gt;
+);
+
+const PokemonTypeComp: FC&lt;{ types: PokemonType[] }&gt; = ({ types }) =&gt; (
+	&lt;Flex direction=&quot;column&quot; align=&quot;center&quot; mb=&quot;2rem&quot;&gt;
+		&lt;Text fontSize=&quot;1.5rem&quot;&gt;Type(s)&lt;/Text&gt;
+		&lt;HStack divider={&lt;StackDivider borderColor=&quot;gray.200&quot; /&gt;}&gt;
+			{types.map((type) =&gt; (
+				&lt;Text key={type}&gt;{type}&lt;/Text&gt;
+			))}
+		&lt;/HStack&gt;
+	&lt;/Flex&gt;
+);
+
+const PokemonMiscComp: FC&lt;{ misc: PokemonMisc }&gt; = ({ misc }) =&gt; (
+	&lt;SimpleGrid columns={3} spacing={10} mb=&quot;3rem&quot;&gt;
+		&lt;Stat direction=&quot;column&quot;&gt;
+			&lt;StatLabel&gt;Normal Abilities&lt;/StatLabel&gt;
+			&lt;HStack divider={&lt;StackDivider borderColor=&quot;gray.200&quot; /&gt;}&gt;
+				{misc.abilities.normal.map((ability: string) =&gt; (
+					&lt;Text key={ability}&gt;{ability}&lt;/Text&gt;
+				))}
+			&lt;/HStack&gt;
+		&lt;/Stat&gt;
+		&lt;Stat direction=&quot;column&quot;&gt;
+			&lt;StatLabel&gt;Hidden Abilities&lt;/StatLabel&gt;
+			&lt;HStack divider={&lt;StackDivider borderColor=&quot;gray.200&quot; /&gt;}&gt;
+				{misc.abilities.hidden.map((ability: string) =&gt; (
+					&lt;Text key={ability}&gt;{ability}&lt;/Text&gt;
+				))}
+			&lt;/HStack&gt;
+		&lt;/Stat&gt;
+		&lt;Stat direction=&quot;column&quot;&gt;
+			&lt;StatLabel&gt;Classification&lt;/StatLabel&gt;
+			&lt;Text&gt;{startCase(misc.classification)}&lt;/Text&gt;
+		&lt;/Stat&gt;
+		&lt;Stat direction=&quot;column&quot;&gt;
+			&lt;StatLabel&gt;Height (ft,in)&lt;/StatLabel&gt;
+			&lt;StatNumber&gt;{misc.height}&lt;/StatNumber&gt;
+		&lt;/Stat&gt;
+		&lt;Stat direction=&quot;column&quot;&gt;
+			&lt;StatLabel&gt;Weight (lbs)&lt;/StatLabel&gt;
+			&lt;StatNumber&gt;{misc.weight}&lt;/StatNumber&gt;
+		&lt;/Stat&gt;
+	&lt;/SimpleGrid&gt;
+);
+
+const PokemonDetails: FC = () =&gt; {
+	const { pokemonId } = useParams();
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const selectedPokemon = useAppSelector(selectSelectedPokemon);
+
+	useEffect(() =&gt; {
+		const routePokemonId = pokemonId &amp;&amp; parseInt(pokemonId, 10);
+		const isNewRoutePokemonId = selectedPokemon?.id != routePokemonId;
+		const isPokemonNotLoaded = !selectedPokemon;
+
+		if (routePokemonId &amp;&amp; (isNewRoutePokemonId || isPokemonNotLoaded)) {
+			dispatch(fetchPokemon(routePokemonId));
+		}
+	}, [pokemonId]);
+
+	if (!selectedPokemon) {
+		return null;
+	}
+
+	const handlePreviousClick = () =&gt; {
+		const previousPokemonId =
+			selectedPokemon.id == 1 ? 151 : selectedPokemon.id - 1;
+		navigate(`../${previousPokemonId}`, { replace: true });
+	};
+
+	const handleNextClick = () =&gt; {
+		const nextPokemonId =
+			selectedPokemon.id == 151 ? 1 : selectedPokemon.id + 1;
+		navigate(`../${nextPokemonId}`, { replace: true });
+	};
+
+	const handleBackToSearchClick = () =&gt; navigate(`..`, { replace: true });
+
+	return (
+		&lt;Flex flexDir=&quot;column&quot; alignItems=&quot;center&quot; flex=&quot;1&quot;&gt;
+			&lt;Flex w=&quot;100%&quot; justify=&quot;space-between&quot;&gt;
+				&lt;Button
+					leftIcon={&lt;ArrowBackIcon /&gt;}
+					onClick={handlePreviousClick}
+				&gt;
+					Previous
+				&lt;/Button&gt;
+				&lt;Button
+					rightIcon={&lt;SearchIcon /&gt;}
+					onClick={handleBackToSearchClick}
+				&gt;
+					Back to search
+				&lt;/Button&gt;
+				&lt;Button
+					rightIcon={&lt;ArrowForwardIcon /&gt;}
+					onClick={handleNextClick}
+				&gt;
+					Next
+				&lt;/Button&gt;
+			&lt;/Flex&gt;
+			&lt;Heading mt=&quot;3rem&quot;&gt;
+				{selectedPokemon.name} #{selectedPokemon.id}
+			&lt;/Heading&gt;
+			&lt;Image
+				my=&quot;3rem&quot;
+				src={selectedPokemon.img}
+				alt={selectedPokemon.name}
+				objectFit=&quot;contain&quot;
+			/&gt;
+			&lt;PokemonTypeComp types={selectedPokemon.type} /&gt;
+			&lt;PokemonMiscComp misc={selectedPokemon.misc} /&gt;
+			&lt;GeneralPokemonDataComp
+				title=&quot;Stats&quot;
+				keyValueMap={selectedPokemon.stats}
+			/&gt;
+			&lt;GeneralPokemonDataComp
+				title=&quot;Damage Multipliers&quot;
+				keyValueMap={selectedPokemon.damages}
+			/&gt;
+			&lt;PokemonMovesComp moves={selectedPokemon.moves.level} /&gt;
+		&lt;/Flex&gt;
+	);
+};
+
+export default PokemonDetails;
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

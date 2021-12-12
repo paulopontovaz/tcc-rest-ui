@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Genese complexity report</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./../reports-styles/prism.css" />
+    <link rel="stylesheet" href="./../reports-styles/prettify.css" />
+    <link rel="stylesheet" href="./../reports-styles/report.css" />
+    <link rel="stylesheet" href="./../reports-styles/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+<div class="header">
+    <div class="header-left">
+        <div>
+            <h1>Genese complexity report</h1>
+        </div>
+        <div class="pad1y">
+            <span class="backLink" onclick="history.back()"><-</span>
+            PokemonDetails.tsx
+        </div>
+        <div class="clearfix">
+            <div class='fl pad1y space-right2'>
+                <span>Methods : </span>
+                <span class="strong">5</span>
+            </div>
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="clearfix padly">
+            <div class='fl pad1y space-right2'>
+                <span>Comprehension complexity : </span>
+                <span class="strong">63.1</span>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class='fl pad1y space-right2'>
+                <span>Cyclomatic complexity :</span>
+                <span class="strong">6</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--        -------------------------------------------------------------------------------------->
+<!--        -----------------------------------   Stats and charts   ----------------------------->
+<!--        -------------------------------------------------------------------------------------->
+
+
+<div class="mainContainer">
+    <div class="stats-and-charts">
+
+        <!--        -----------------------------------   Cognitive complexity   ---------------------------->
+
+        <div class="stats-cognitive">
+            <div class="stats-and-doughnut stats-and-doughnut-cognitive">
+                <div class="doughnut">
+                    <canvas id="doughnut-cognitive-cpx" height="220"></canvas>
+                </div>
+                <div class="stats">
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">Comprehension complexity</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">80 %</span>
+                            <span class="quiet"> Low</span>
+                            <span
+                                    class='fraction'>4/5</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">0 %</span>
+                            <span class="quiet"> Medium</span>
+                            <span
+                                    class='fraction'>0/5</span>
+                            <span class="quiet">(threshold : 10)</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">20 %</span>
+                            <span class="quiet"> High</span>
+                            <span
+                                    class='fraction'>1/5</span>
+                            <span class="quiet">(threshold : 20)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bar bar-cognitive">
+                <canvas id="bar-cognitive-cpx" class="cognitive-charts"></canvas>
+            </div>
+        </div>
+
+        <!--        -----------------------------------   Cyclomatic complexity   ---------------------------->
+
+        <div class="stats-cyclomatic">
+            <div class="stats-and-doughnut-cyclomatic">
+                <div class="doughnut">
+                    <canvas id="doughnut-cyclomatic-cpx" height="220"></canvas>
+                </div>
+                <div class="stats-cy">
+                    <div class="clearfix cyclomatic-subtitle">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">Cyclomatic complexity</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">80 %</span>
+                            <span class="quiet"> Low</span>
+                            <span
+                                    class='fraction'>4/5</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">20 %</span>
+                            <span class="quiet"> Medium</span>
+                            <span
+                                    class='fraction'>1/5</span>
+                            <span class="quiet">(threshold : 5)</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class='fl pad1y space-right2'>
+                            <span class="strong">0 %</span>
+                            <span class="quiet"> High</span>
+                            <span
+                                    class='fraction'>0/5</span>
+                            <span class="quiet">(threshold : 10)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar bar-cyclomatic">
+                <canvas id="bar-cyclomatic-cpx" class="cyclomatic-charts"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!--        -------------------------------------------------------------------------------------->
+    <!--        -----------------------------------   Code of methods   ------------------------------>
+    <!--        -------------------------------------------------------------------------------------->
+
+
+    <div idclass="subfolders">
+        <div class="clearfix file-methods-subtitle">
+            <div class='fl pad1y space-right2'>
+                <span id="spanDisplayMethodsArray" class="strong">Methods of <span class="italic">PokemonDetails.tsx</span></span>
+            </div>
+        </div>
+
+        <div id="methodsArray">
+                <div id="GeneralPokemonDataComp">
+                    <table class="array-report method-table">
+                        <thead class="method-thead">
+                        <tr>
+                            <th class="method-name-column">
+                                <span class="strong">GeneralPokemonDataComp</span>
+                            </th>
+                            <th class="right bgwhite">Comprehension complexity</th>
+                            <th class="bglowLvl">2.8</th>
+                            <th class="right bgwhite">Cyclomatic complexity</th>
+                            <th class="bglowLvl">0</th>
+                        </tr>
+                        </thead>
+                        <tbody class="method-body">
+                        <tr class="code-row">
+                            <td colspan="5">
+                                    <pre>
+                                <code class="language-js">
+                                    
+                
+                
+                const GeneralPokemonDataComp: FC&lt;GeneralPokemonDataOwnProps&gt; &#x3D; ({ // ------- +2.5 Complexity index (+0.5 atomic, +1 structural, +1 typing)
+                	children, // -------------------------------------------------------------- +0.1 Complexity index (+0.1 atomic)
+                	keyValueMap, // ----------------------------------------------------------- +0.1 Complexity index (+0.1 atomic)
+                	title, // ----------------------------------------------------------------- +0.1 Complexity index (+0.1 atomic)
+                }) &#x3D;&gt; (
+                	&lt;Flex direction&#x3D;&quot;column&quot; w&#x3D;&quot;100%&quot; mb&#x3D;&quot;3rem&quot;&gt;
+                		&lt;Heading size&#x3D;&quot;lg&quot;&gt;{title}&lt;/Heading&gt;
+                		&lt;VStack
+                			mt&#x3D;&quot;1rem&quot;
+                			divider&#x3D;{&lt;StackDivider borderColor&#x3D;&quot;gray.200&quot; /&gt;}
+                			spacing&#x3D;{2}
+                			align&#x3D;&quot;stretch&quot;
+                		&gt;
+                			{children ||
+                				(keyValueMap &amp;&amp;
+                					Object.entries(keyValueMap).map(([key, value]) &#x3D;&gt; (
+                						&lt;Flex key&#x3D;{&#x60;${key}-${value}&#x60;}&gt;
+                							&lt;Text&gt;
+                								&lt;strong&gt;{key.toUpperCase()}&lt;/strong&gt;
+                							&lt;/Text&gt;
+                							&lt;Text ml&#x3D;&quot;0.5rem&quot;&gt;{value}&lt;/Text&gt;
+                						&lt;/Flex&gt;
+                					)))}
+                		&lt;/VStack&gt;
+                	&lt;/Flex&gt;
+                );
+                
+                                </code>
+                            </pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="PokemonMovesComp">
+                    <table class="array-report method-table">
+                        <thead class="method-thead">
+                        <tr>
+                            <th class="method-name-column">
+                                <span class="strong">PokemonMovesComp</span>
+                            </th>
+                            <th class="right bgwhite">Comprehension complexity</th>
+                            <th class="bglowLvl">2.8</th>
+                            <th class="right bgwhite">Cyclomatic complexity</th>
+                            <th class="bglowLvl">0</th>
+                        </tr>
+                        </thead>
+                        <tbody class="method-body">
+                        <tr class="code-row">
+                            <td colspan="5">
+                                    <pre>
+                                <code class="language-js">
+                                    
+                
+                
+                const PokemonMovesComp: FC&lt;{ moves: PokemonMoves[&quot;level&quot;] }&gt; &#x3D; ({ moves }) &#x3D;&gt; ( // ------- +2.8 Complexity index (+0.8 atomic, +1 structural, +1 typing)
+                	&lt;GeneralPokemonDataComp title&#x3D;&quot;Moves&quot;&gt;
+                		{moves.map(({ learnedat, name }) &#x3D;&gt; (
+                			&lt;Flex align&#x3D;&quot;center&quot; key&#x3D;{&#x60;${name}-${learnedat}&#x60;}&gt;
+                				&lt;Text&gt;
+                					&lt;strong&gt;{startCase(name)}&lt;/strong&gt;
+                				&lt;/Text&gt;
+                				&lt;Text as&#x3D;&quot;sub&quot; ml&#x3D;&quot;1rem&quot;&gt;
+                					(
+                					{learnedat
+                						? &#x60;Learned at level: ${learnedat}&#x60;
+                						: &quot;From the start&quot;}
+                					)
+                				&lt;/Text&gt;
+                			&lt;/Flex&gt;
+                		))}
+                	&lt;/GeneralPokemonDataComp&gt;
+                );
+                
+                                </code>
+                            </pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="PokemonTypeComp">
+                    <table class="array-report method-table">
+                        <thead class="method-thead">
+                        <tr>
+                            <th class="method-name-column">
+                                <span class="strong">PokemonTypeComp</span>
+                            </th>
+                            <th class="right bgwhite">Comprehension complexity</th>
+                            <th class="bglowLvl">2.8</th>
+                            <th class="right bgwhite">Cyclomatic complexity</th>
+                            <th class="bglowLvl">0</th>
+                        </tr>
+                        </thead>
+                        <tbody class="method-body">
+                        <tr class="code-row">
+                            <td colspan="5">
+                                    <pre>
+                                <code class="language-js">
+                                    
+                
+                
+                const PokemonTypeComp: FC&lt;{ types: PokemonType[] }&gt; &#x3D; ({ types }) &#x3D;&gt; ( // ------- +2.8 Complexity index (+0.8 atomic, +1 structural, +1 typing)
+                	&lt;Flex direction&#x3D;&quot;column&quot; align&#x3D;&quot;center&quot; mb&#x3D;&quot;2rem&quot;&gt;
+                		&lt;Text fontSize&#x3D;&quot;1.5rem&quot;&gt;Type(s)&lt;/Text&gt;
+                		&lt;HStack divider&#x3D;{&lt;StackDivider borderColor&#x3D;&quot;gray.200&quot; /&gt;}&gt;
+                			{types.map((type) &#x3D;&gt; (
+                				&lt;Text key&#x3D;{type}&gt;{type}&lt;/Text&gt;
+                			))}
+                		&lt;/HStack&gt;
+                	&lt;/Flex&gt;
+                );
+                
+                                </code>
+                            </pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="PokemonMiscComp">
+                    <table class="array-report method-table">
+                        <thead class="method-thead">
+                        <tr>
+                            <th class="method-name-column">
+                                <span class="strong">PokemonMiscComp</span>
+                            </th>
+                            <th class="right bgwhite">Comprehension complexity</th>
+                            <th class="bglowLvl">2.7</th>
+                            <th class="right bgwhite">Cyclomatic complexity</th>
+                            <th class="bglowLvl">0</th>
+                        </tr>
+                        </thead>
+                        <tbody class="method-body">
+                        <tr class="code-row">
+                            <td colspan="5">
+                                    <pre>
+                                <code class="language-js">
+                                    
+                
+                
+                const PokemonMiscComp: FC&lt;{ misc: PokemonMisc }&gt; &#x3D; ({ misc }) &#x3D;&gt; ( // ------- +2.7 Complexity index (+0.7 atomic, +1 structural, +1 typing)
+                	&lt;SimpleGrid columns&#x3D;{3} spacing&#x3D;{10} mb&#x3D;&quot;3rem&quot;&gt;
+                		&lt;Stat direction&#x3D;&quot;column&quot;&gt;
+                			&lt;StatLabel&gt;Normal Abilities&lt;/StatLabel&gt;
+                			&lt;HStack divider&#x3D;{&lt;StackDivider borderColor&#x3D;&quot;gray.200&quot; /&gt;}&gt;
+                				{misc.abilities.normal.map((ability: string) &#x3D;&gt; (
+                					&lt;Text key&#x3D;{ability}&gt;{ability}&lt;/Text&gt;
+                				))}
+                			&lt;/HStack&gt;
+                		&lt;/Stat&gt;
+                		&lt;Stat direction&#x3D;&quot;column&quot;&gt;
+                			&lt;StatLabel&gt;Hidden Abilities&lt;/StatLabel&gt;
+                			&lt;HStack divider&#x3D;{&lt;StackDivider borderColor&#x3D;&quot;gray.200&quot; /&gt;}&gt;
+                				{misc.abilities.hidden.map((ability: string) &#x3D;&gt; (
+                					&lt;Text key&#x3D;{ability}&gt;{ability}&lt;/Text&gt;
+                				))}
+                			&lt;/HStack&gt;
+                		&lt;/Stat&gt;
+                		&lt;Stat direction&#x3D;&quot;column&quot;&gt;
+                			&lt;StatLabel&gt;Classification&lt;/StatLabel&gt;
+                			&lt;Text&gt;{startCase(misc.classification)}&lt;/Text&gt;
+                		&lt;/Stat&gt;
+                		&lt;Stat direction&#x3D;&quot;column&quot;&gt;
+                			&lt;StatLabel&gt;Height (ft,in)&lt;/StatLabel&gt;
+                			&lt;StatNumber&gt;{misc.height}&lt;/StatNumber&gt;
+                		&lt;/Stat&gt;
+                		&lt;Stat direction&#x3D;&quot;column&quot;&gt;
+                			&lt;StatLabel&gt;Weight (lbs)&lt;/StatLabel&gt;
+                			&lt;StatNumber&gt;{misc.weight}&lt;/StatNumber&gt;
+                		&lt;/Stat&gt;
+                	&lt;/SimpleGrid&gt;
+                );
+                
+                                </code>
+                            </pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="PokemonDetails">
+                    <table class="array-report method-table">
+                        <thead class="method-thead">
+                        <tr>
+                            <th class="method-name-column">
+                                <span class="strong">PokemonDetails</span>
+                            </th>
+                            <th class="right bgwhite">Comprehension complexity</th>
+                            <th class="bghighLvl">51.5</th>
+                            <th class="right bgwhite">Cyclomatic complexity</th>
+                            <th class="bgmediumLvl">6</th>
+                        </tr>
+                        </thead>
+                        <tbody class="method-body">
+                        <tr class="code-row">
+                            <td colspan="5">
+                                    <pre>
+                                <code class="language-js">
+                                    
+                
+                
+                const PokemonDetails: FC &#x3D; () &#x3D;&gt; { // ---------------------------------------------- +1.3 Complexity index (+0.3 atomic, +1 structural)
+                	const { pokemonId } &#x3D; useParams(); // --------------------------------------------- +2.3 Complexity index (+0.3 atomic, +1 structural, +1 typing)
+                	const dispatch &#x3D; useAppDispatch(); // --------------------------------------------- +2.3 Complexity index (+0.3 atomic, +1 structural, +1 typing)
+                	const navigate &#x3D; useNavigate(); // ------------------------------------------------ +2.3 Complexity index (+0.3 atomic, +1 structural, +1 typing)
+                	const selectedPokemon &#x3D; useAppSelector(selectSelectedPokemon); // ----------------- +2.4 Complexity index (+0.4 atomic, +1 structural, +1 typing)
+                
+                	useEffect(() &#x3D;&gt; { // -------------------------------------------------------------- +3.2 Complexity index (+0.2 atomic, +3 structural)
+                		const routePokemonId &#x3D; pokemonId &amp;&amp; parseInt(pokemonId, 10); // ------------------ +3.8 Complexity index (+0.8 atomic, +2 structural, +1 typing)
+                		const isNewRoutePokemonId &#x3D; selectedPokemon?.id !&#x3D; routePokemonId; // ------------ +1.6 Complexity index (+0.6 atomic, +1 typing)
+                		const isPokemonNotLoaded &#x3D; !selectedPokemon; // ---------------------------------- +1.3 Complexity index (+0.3 atomic, +1 typing)
+                
+                		if (routePokemonId &amp;&amp; (isNewRoutePokemonId || isPokemonNotLoaded)) { // ---------- +4.8 Complexity index (+0.8 atomic, +3 structural, +1 nesting)
+                			dispatch(fetchPokemon(routePokemonId)); // -------------------------------------- +2.3 Complexity index (+0.3 atomic, +2 structural)
+                		}
+                	}, [pokemonId]); // --------------------------------------------------------------- +0.1 Complexity index (+0.1 atomic)
+                
+                	if (!selectedPokemon) { // -------------------------------------------------------- +1.2 Complexity index (+0.2 atomic, +1 structural)
+                		return null; // ------------------------------------------------------------------ +0.1 Complexity index (+0.1 atomic)
+                	}
+                
+                	const handlePreviousClick &#x3D; () &#x3D;&gt; { // -------------------------------------------- +3.3 Complexity index (+0.3 atomic, +2 structural, +1 typing)
+                		const previousPokemonId &#x3D; // ----------------------------------------------------- +1.2 Complexity index (+0.2 atomic, +1 typing)
+                			selectedPokemon.id &#x3D;&#x3D; 1 ? 151 : selectedPokemon.id - 1; // ---------------------- +3.0 Complexity index (+1.0 atomic, +1 structural, +1 nesting)
+                		navigate(&#x60;../${previousPokemonId}&#x60;, { replace: true }); // ----------------------- +1.4 Complexity index (+0.4 atomic, +1 structural)
+                	};
+                
+                	const handleNextClick &#x3D; () &#x3D;&gt; { // ------------------------------------------------ +3.3 Complexity index (+0.3 atomic, +2 structural, +1 typing)
+                		const nextPokemonId &#x3D; // --------------------------------------------------------- +1.2 Complexity index (+0.2 atomic, +1 typing)
+                			selectedPokemon.id &#x3D;&#x3D; 151 ? 1 : selectedPokemon.id + 1; // ---------------------- +3.0 Complexity index (+1.0 atomic, +1 structural, +1 nesting)
+                		navigate(&#x60;../${nextPokemonId}&#x60;, { replace: true }); // --------------------------- +1.4 Complexity index (+0.4 atomic, +1 structural)
+                	};
+                
+                	const handleBackToSearchClick &#x3D; () &#x3D;&gt; navigate(&#x60;..&#x60;, { replace: true }); // ------- +4.6 Complexity index (+0.6 atomic, +3 structural, +1 typing)
+                
+                	return ( // ----------------------------------------------------------------------- +0.1 Complexity index (+0.1 atomic)
+                		&lt;Flex flexDir&#x3D;&quot;column&quot; alignItems&#x3D;&quot;center&quot; flex&#x3D;&quot;1&quot;&gt;
+                			&lt;Flex w&#x3D;&quot;100%&quot; justify&#x3D;&quot;space-between&quot;&gt;
+                				&lt;Button
+                					leftIcon&#x3D;{&lt;ArrowBackIcon /&gt;}
+                					onClick&#x3D;{handlePreviousClick}
+                				&gt;
+                					Previous
+                				&lt;/Button&gt;
+                				&lt;Button
+                					rightIcon&#x3D;{&lt;SearchIcon /&gt;}
+                					onClick&#x3D;{handleBackToSearchClick}
+                				&gt;
+                					Back to search
+                				&lt;/Button&gt;
+                				&lt;Button
+                					rightIcon&#x3D;{&lt;ArrowForwardIcon /&gt;}
+                					onClick&#x3D;{handleNextClick}
+                				&gt;
+                					Next
+                				&lt;/Button&gt;
+                			&lt;/Flex&gt;
+                			&lt;Heading mt&#x3D;&quot;3rem&quot;&gt;
+                				{selectedPokemon.name} #{selectedPokemon.id}
+                			&lt;/Heading&gt;
+                			&lt;Image
+                				my&#x3D;&quot;3rem&quot;
+                				src&#x3D;{selectedPokemon.img}
+                				alt&#x3D;{selectedPokemon.name}
+                				objectFit&#x3D;&quot;contain&quot;
+                			/&gt;
+                			&lt;PokemonTypeComp types&#x3D;{selectedPokemon.type} /&gt;
+                			&lt;PokemonMiscComp misc&#x3D;{selectedPokemon.misc} /&gt;
+                			&lt;GeneralPokemonDataComp
+                				title&#x3D;&quot;Stats&quot;
+                				keyValueMap&#x3D;{selectedPokemon.stats}
+                			/&gt;
+                			&lt;GeneralPokemonDataComp
+                				title&#x3D;&quot;Damage Multipliers&quot;
+                				keyValueMap&#x3D;{selectedPokemon.damages}
+                			/&gt;
+                			&lt;PokemonMovesComp moves&#x3D;{selectedPokemon.moves.level} /&gt;
+                		&lt;/Flex&gt;
+                	);
+                };
+                
+                                </code>
+                            </pre>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--        -------------------------------------------------------------------------------------->
+<!--        -----------------------------------   Scripts   -------------------------------------->
+<!--        -------------------------------------------------------------------------------------->
+
+
+
+<script src="././../reports-styles/Chart.js"></script>
+<script src="./../reports-styles/prism.js"></script>
+
+<script>
+    var ctxDougnutCognitive = document.getElementById('doughnut-cognitive-cpx').getContext("2d");
+    var doughnutCognitive = new Chart(ctxDougnutCognitive, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [
+                    4,
+                    0,
+                    1,
+                ],
+                backgroundColor: [
+                        '#99ccff',
+                        '#ffa31a',
+                        '#ff3300',
+                ]
+            }],
+            labels: [
+                'low cpx methods ',
+                'medium cpx methods ',
+                'high cpx methods ',
+            ]
+        },
+        options: {
+            layout: {
+                padding: {
+                    maintainAspectRatio: false,
+                    responsive: false,
+                    left: 50,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            legend: {
+                display: false
+            },
+            position: 'left',
+            title: {
+                display: true,
+                text: 'Comprehension complexity'
+            }
+        }
+    });
+</script>
+<script>
+    var ctxBarCognitive = document.getElementById('bar-cognitive-cpx').getContext("2d");
+    var barCognitive = new Chart(ctxBarCognitive, {
+        type: 'bar',
+        data: {
+            labels: [
+                    '0',
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                    '7',
+                    '8',
+                    '9',
+                    '10',
+                    '11',
+                    '12',
+                    '13',
+                    '14',
+                    '15',
+                    '16',
+                    '17',
+                    '18',
+                    '19',
+                    '20',
+                    '21',
+                    '22',
+                    '23',
+                    '24',
+                    '25',
+                    '26',
+                    '27',
+                    '28',
+                    '29',
+                    '30',
+                    '31',
+                    '32',
+                    '33',
+                    '34',
+                    '35',
+                    '36',
+                    '37',
+                    '38',
+                    '39',
+                    '40',
+                    '41',
+                    '42',
+                    '43',
+                    '44',
+                    '45',
+                    '46',
+                    '47',
+                    '48',
+                    '49',
+                    '50',
+                    '51',
+                    '52',
+            ],
+            datasets: [{
+                data: [
+                        0,
+                        0,
+                        0,
+                        4,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                ],
+                backgroundColor: [
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ffa31a',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                        '#ff3300',
+                ],
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Comprehension complexity'
+                    },
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of methods'
+                    },
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }]
+            }
+        }
+    });
+</script>
+<script>
+    var ctxDougnutCyclomatic = document.getElementById('doughnut-cyclomatic-cpx').getContext("2d");
+    var doughnutCyclomatic = new Chart(ctxDougnutCyclomatic, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [
+                    4,
+                    1,
+                    0,
+                ],
+                backgroundColor: [
+                        '#99ccff',
+                        '#ffa31a',
+                        '#ff3300',
+                ]
+            }],
+            labels: [
+                'low cpx methods ',
+                'medium cpx methods ',
+                'high cpx methods ',
+            ]
+        },
+        options: {
+            layout: {
+                padding: {
+                    maintainAspectRatio: false,
+                    responsive: false,
+                    left: 50,
+                    right: 0,
+                    top: 0,
+                    bottom: 0
+                }
+            },
+            legend: {
+                display: false
+            },
+            position: 'left',
+            title: {
+                display: true,
+                text: 'Cyclomatic complexity'
+            }
+        }
+    });
+</script>
+<script>
+    var ctxBarCyclomatic = document.getElementById('bar-cyclomatic-cpx').getContext("2d");
+    var barCyclomatic = new Chart(ctxBarCyclomatic, {
+        type: 'bar',
+        data: {
+            labels: [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+            ],
+            datasets: [{
+                data: [
+                        4,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                ],
+                backgroundColor: [
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#99ccff',
+                        '#ffa31a',
+                ],
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: false,
+                text: 'Cyclomatic complexity',
+                position: 'top'
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Cyclomatic complexity'
+                    },
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Number of methods'
+                    },
+                    ticks: {
+                        suggestedMin: 0
+                    }
+                }]
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
