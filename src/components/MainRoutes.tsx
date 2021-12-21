@@ -1,4 +1,4 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { FC } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import App from "./App";
